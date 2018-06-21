@@ -1,0 +1,12 @@
+<div>
+<h1>Baked by {{selectedCake.baker}}</h1>
+<img width="350" src="{{selectedCake.url}}" alt="No Image">
+<h3>Average Rating: {{averageRating}}</h3>
+<div *ngFor="let i of selectedCake.comments">
+        <h4>{{i.comment}}</h4>
+        <h4>{{i.rating}} Stars</h4>
+    
+</div>
+</div>
+
+

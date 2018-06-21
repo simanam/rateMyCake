@@ -1,0 +1,48 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+<div style="text-align:center">
+  <h1>
+    Rate my {{ title }}!
+  </h1>
+  </div>
+  <div>
+    <h2>Submit a cake to be rated</h2>
+    <form (submit)="onSubmit()" class="postForm">
+      
+      <label>Baker name: 
+          <input type="text" name="newTask.baker" [(ngModel)] ="newTask.baker"/>
+      </label>
+      <label>Image url: 
+            <input type="text" name="newTask.url" [(ngModel)] ="newTask.url"/>
+        </label>
+        <input type="submit" value="Add Cake" />
+  
+    </form>
+  </div>
+  <h2>Feedback on cake </h2>
+  <div style="overflow: auto; height: 500px; width: 300px;"> 
+    
+      
+      <div *ngFor="let task of tasks">
+        <img width= "250" src="{{task.url}}" alt="No Image" (click)="cakeToShow(task)">
+        <form (submit)="onComment(task, myform)" class="postForm" #myform = "ngForm">
+        
+            <select  name="rating" ngModel >
+                <option value = 1 >1</option>
+                <option value = 2 >2</option>
+                <option value = 3 >3</option>
+                <option value = 4 >4</option>
+                <option value = 5 >5</option>
+              </select>
+            <textarea placeholder="Type your comment here" type="text" name="comment" ngModel></textarea>
+              <input type="submit" value="Rate" />
+        
+          </form>
+        
+        
+      </div>
+  </div> 
+
+  <app-baker *ngIf='selectedCake'[selectedCake] = 'selectedCakes' ></app-baker>
+</div>
+
