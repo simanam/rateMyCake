@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
 
   constructor(private _taskService: TasksService){ }
   ngOnInit(){
-    this.newTask = {baker: " ", ulr: " "};
+    this.newTask = {baker: " ", url: " "};
     this.editClicked= false;
     this.getTasksFromService();
     
